@@ -92,12 +92,10 @@ public class MainActivity extends AppCompatActivity {
     private void checkWinner() {
         if (hasWon) {
             messageTextView.setText("Hurray you guessed it correctly.\nYOU WON!");
-            checkNumberButton.setVisibility(View.GONE);
-            enterNumberEditText.setVisibility(View.GONE);
         } else {
             messageTextView.setText("Oops you haven't guessed it.\nSorry, YOU LOSE!\n\nThe correct number was " + randomNumber);
-            checkNumberButton.setVisibility(View.GONE);
-            enterNumberEditText.setVisibility(View.GONE);
         }
+        checkNumberButton.setVisibility(View.GONE);
+        enterNumberEditText.setVisibility(View.GONE);
     }
 }
