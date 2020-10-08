@@ -1,29 +1,40 @@
 package com.example.game;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView messageTextView;
-    Button startGameButton, checkNumberButton, resetButton;
-    EditText enterNumberEditText;
-    int count = 10;
-    int randomNumber;
-    boolean hasWon = false;
+    private TextView messageTextView;
+    private Button startGameButton, checkNumberButton, resetButton;
+    private EditText enterNumberEditText;
+    private int count = 10;
+    private int randomNumber;
+    private boolean hasWon = false;
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        messageTextView = findViewById(R.id.message_text_view);
+        // making activity full screen
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
+
+        messageTextView = findViewById(R.id.instructions);
         startGameButton = findViewById(R.id.start_game_button);
         checkNumberButton = findViewById(R.id.check_number_button);
         enterNumberEditText = findViewById(R.id.enter_number_edit_text);
@@ -39,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         startGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 startGame();
             }
         });
@@ -47,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         checkNumberButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 checkGuessedNumber();
             }
         });

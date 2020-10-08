@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Game</string>
+    <string name="welcome_msg">Welcome to Guess Number</string>
+    <string name="instructions">Press below button to START the game</string>
+    <string name="check_button_text">Check</string>
+    <string name="start_game_button_text">Start Game</string>
+    <string name="reset_button_text">Reset</string>
 </resources>
